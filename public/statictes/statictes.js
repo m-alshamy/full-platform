@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
         }),
         axisY: {
             showLabel: true,
-            showGrid: true,
+            showGrid: false,
             offset: 0
         },
         axisX: {
