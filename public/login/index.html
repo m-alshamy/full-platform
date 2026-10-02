@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="">
+
+<head>
+    <title>تسجيل الدخول للمنصة</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark') } catch (e) { }</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./dist/output.css" as="style">
+    <link href="../dist/output.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="auth.js" defer></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="../css/all.min.css">
+    </noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap"
+            rel="stylesheet">
+    </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+
+    <script src="../js/interface.js" defer></script>
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0f172a">
+    <meta name="description" content="عنوان الموقع هنا">
+    <meta name="theme-color" content="#14b8a6">
+    <meta property="og:title" content="منصة أ/محمد الشامي">
+    <meta property="og:description" content="هنا وصف للموقع في سطري الى سطرين">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="منصة أ/محمد الشامي">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "منصة أ/محمد الشامي",
+      "alternateName": "mr/mohamed elshami platform",
+      "url": ""
+    }
+    </script>
+
+    <style>
+        /* حقول صغيرة مساعدة للتسميات والتجميع بدون كتابة نفس الكلاسات في كل مكان */
+        .field-label {
+            display: block;
+            margin-bottom: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .field-input {
+            width: 100%;
+            border-width: 1px;
+            border-radius: 0.5rem;
+            padding: 0.55rem 0.75rem;
+        }
+
+        .field-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--tw-ring-color, currentColor);
+        }
+
+        /* يضمن ظهور نموذج التسجيل كـ flex فعليًا (وليس block) بمجرد إزالة كلاس hidden منه،
+           بدون الاعتماد على ترتيب كلاسات hidden/flex في ملف Tailwind المُصدَّر */
+        #register-form:not(.hidden) {
+            display: flex;
+        }
+
+        /* دوائر خلفية زخرفية بسيطة لجانب الترحيب */
+        .deco-blob {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(60px);
+            opacity: 0.35;
+        }
+    </style>
+</head>
+
+<body
+    class="h-dvh overflow-hidden font-noto bg-pri-bg text-pri-text scroll-smooth transition-all selection:bg-pri-item/40 flex flex-col"
+    hidden>
+
+    <header
+        class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b border-b-sec-bg/10 backdrop-blur-sm transition-all z-49 overflow-clip">
+
+        <div class="w-24">
+            <a href="/" id="logo">
+                <img src="../img/logo.svg" alt="logo" class=""">
+            </a>
+        </div>
+
+        <button onclick=" toggleMode()"
+                    class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
+                <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
+                <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
+                </button>
+
+    </header>
+
+    <div class="flex-1 min-h-0 w-full flex flex-col lg:flex-row">
+
+        <!-- نصف نموذجي الدخول والتسجيل -->
+        <section class="w-full lg:w-1/2 h-full flex flex-col overflow-y-auto px-4 py-18 sm:px-8">
+            <div
+                class="m-auto border-0 dark:border-2 border-sec-bg/20 backdrop-blur-xl px-6 py-4 sm:px-8 shadow-sec-bg/20 shadow-lg dark:shadow-none w-full max-w-md rounded-3xl">
+                <h2 class="text-2xl font-bold mb-6 text-center lg:hidden">تسجيل الدخول للمنصة</h2>
+                <div id="auth-section">
+
+
+                    <!-- أزرار التبديل بين النموذجين -->
+                    <div class="flex mb-6 border-b" role="tablist">
+                        <button id="tab-login" onclick="showTab('login')" role="tab" aria-selected="true"
+                            class="flex-1 py-2 font-bold text-sec-item border-b-2 border-sec-item cursor-pointer">
+                            تسجيل الدخول
+                        </button>
+                        <button id="tab-register" onclick="showTab('register')" role="tab" aria-selected="false"
+                            class="flex-1 py-2 font-bold text-gray-400 cursor-pointer">
+                            حساب جديد
+                        </button>
+                    </div>
+
+                    <!-- نموذج تسجيل الدخول -->
+                    <form id="login-form" class="flex flex-col gap-3" onsubmit="event.preventDefault(); login();">
+
+                        <div>
+                            <label for="login-email" class="field-label">البريد الإلكتروني</label>
+                            <input type="email" id="login-email" name="email" required autocomplete="email"
+                                placeholder="example@email.com"
+                                class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                        </div>
+
+                        <div>
+                            <label for="login-password" class="field-label">كلمة المرور</label>
+                            <input type="password" id="login-password" name="password" required
+                                autocomplete="current-password" placeholder="••••••••"
+                                class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                        </div>
+
+                        <button type="submit"
+                            class="subBtn group py-3 px-6 bg-linear-to-tr bg-pri-item to-sec-item rounded-xl text-sm w-full font-semibold shadow-pri-item/50 text-black transition-all hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none mt-1">
+                            تسجيل الدخول
+                        </button>
+                    </form>
+
+                    <!-- نموذج إنشاء حساب -->
+                    <form id="register-form" class="hidden flex-col gap-7"
+                        onsubmit="event.preventDefault(); register();">
+
+                        <!-- بيانات الحساب -->
+                        <fieldset class="flex flex-col gap-3">
+                            <legend class="text-sm font-bold text-sec-item mb-3 pb-1 border-b border-sec-bg/20 w-full">
+                                بيانات الحساب</legend>
+
+                            <div>
+                                <label for="register-email" class="field-label">البريد الإلكتروني</label>
+                                <input type="email" id="register-email" name="email" required autocomplete="email"
+                                    placeholder="example@email.com"
+                                    class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="register-password" class="field-label">كلمة المرور</label>
+                                    <input type="password" id="register-password" name="password" required
+                                        autocomplete="new-password" placeholder="••••••••"
+                                        class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                                </div>
+                                <div>
+                                    <label for="register-password-confirm" class="field-label">تأكيد كلمة المرور</label>
+                                    <input type="password" id="register-password-confirm" name="password_confirm"
+                                        required autocomplete="new-password" placeholder="••••••••"
+                                        class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- البيانات الشخصية -->
+
+                        <fieldset class="flex flex-col gap-3">
+                            <legend class="text-sm font-bold text-sec-item mb-3 pb-1 border-b border-sec-bg/20 w-full">
+                                البيانات الشخصية</legend>
+
+                            <!-- تعديل حقول الاسم إلى 4 حقول في صف واحد -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                <div>
+                                    <label for="fname" class="field-label">الاسم الأول</label>
+                                    <input type="text" id="fname" name="fname" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                </div>
+                                <div>
+                                    <label for="sname" class="field-label">الاسم الثاني</label>
+                                    <input type="text" id="sname" name="sname" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                </div>
+                                <div>
+                                    <label for="tname" class="field-label">الاسم الثالث</label>
+                                    <input type="text" id="tname" name="tname" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                </div>
+                                <div>
+                                    <label for="lname" class="field-label">الاسم الأخير</label>
+                                    <input type="text" id="lname" name="lname" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="phone" class="field-label">رقم الهاتف</label>
+                                    <input type="tel" id="phone" name="phone" required autocomplete="tel"
+                                        placeholder="01xxxxxxxxx"
+                                        class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                                </div>
+                                <div>
+                                    <label for="guardian-phone" class="field-label">رقم هاتف ولي الأمر</label>
+                                    <input type="tel" id="guardian-phone" name="guardian_phone" required
+                                        autocomplete="tel" placeholder="01xxxxxxxxx"
+                                        class="field-input border focus:ring-2 focus:ring-pri-item" dir="ltr">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- بيانات الدراسة -->
+                        <fieldset class="flex flex-col gap-3">
+                            <legend class="text-sm font-bold text-sec-item mb-3 pb-1 border-b border-sec-bg/20 w-full">
+                                بيانات الصف الدراسي</legend>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <div>
+                                    <label for="grade" class="field-label">الصف الدراسي</label>
+                                    <select id="grade" name="grade" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                        <option value="" disabled selected>اختر الصف</option>
+                                        <option value="1sec">الصف الأول الثانوي</option>
+                                        <option value="2sec">الصف الثاني الثانوي</option>
+                                        <option value="3sec">الصف الثالث الثانوي</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="section" class="field-label">الشعبة الدراسية</label>
+                                    <select id="section" name="section" required
+                                        class="field-input border focus:ring-2 focus:ring-pri-item">
+                                        <option value="" disabled selected>اختر الشعبة</option>
+                                        <option value="science-math">علمي رياضة</option>
+                                        <option value="science-bio">علمي علوم</option>
+                                        <option value="arts">أدبي</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <button type="submit"
+                            class="subBtn group py-3 px-6 bg-linear-to-tr bg-pri-item to-sec-item rounded-xl text-sm w-full font-semibold shadow-pri-item/50 text-black transition-all hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none mt-1">
+                            إنشاء حساب جديد
+                        </button>
+                    </form>
+
+                    <p id="error-message" class="text-red-500 text-sm mt-4 text-center hidden" role="alert"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- نصف الترحيب -->
+        <aside
+            class="hidden lg:flex lg:w-1/2 h-full relative overflow-hidden items-center justify-center bg-linear-to-br from-pri-item/10 via-transparent to-sec-item/10 border-r border-sec-bg/10">
+
+            <div class="deco-blob w-72 h-72 bg-pri-item -top-10 -left-10"></div>
+            <div class="deco-blob w-80 h-80 bg-sec-item bottom-0 right-10"></div>
+
+            <div class="relative z-10 max-w-md text-center px-8 flex flex-col gap-16 items-center">
+
+                <img src="../img/logo.svg" alt="logo" class="w-48">
+
+                <div class="flex flex-col items-center justify-center gap-6">
+                    <h1 class="text-2xl font-bold">مرحبًا بك في منصة أ/محمد الشامي</h1>
+                    <p class="text-sm text-pri-text/70 leading-relaxed">
+                        منصة تعليمية متكاملة تساعدك على متابعة الحصص والاختبارات والدرجات في مكان واحد.
+                    </p>
+                </div>
+
+                <ul class="text-sm text-pri-text/80 flex flex-col gap-3 items-start mx-auto w-fit text-right">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-sec-item"></i> فيديوهات شرح لكل
+                        درس</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-sec-item"></i> اختبارات إلكترونية
+                        فورية</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-sec-item"></i> متابعة مستمرة مع ولي
+                        الأمر</li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+
+</body>
+
+</html>

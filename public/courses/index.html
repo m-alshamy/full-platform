@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="">
+
+<head>
+  <title>منصة أ/محمد الشامي</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark') } catch (e) { }</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../dist/output.css" as="style">
+  <link href="../dist/output.css" rel="stylesheet">
+  <link href="../statictes/chartist.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="../css/all.min.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="../css/all.min.css">
+  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet">
+  </noscript>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
+
+  <!-- <script src="wallet.js" defer></script> -->
+  <script src="purchase.js" defer></script>
+  <script src="courses.js" defer></script>
+  <script src="../js/interface.js" defer></script>
+  <script src="../js/main.js"></script>
+
+
+  <!-- تضمين مكتبة charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.11.4/chartist.min.css">
+  <script src="../statictes/statictes.js" defer></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/3.0.0/typed.umd.min.js"></script> -->
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="عنوان الموقع هنا">
+  <!-- <link rel="canonical" href=""> -->
+  <meta name="theme-color" content="#14b8a6">
+  <meta property="og:title" content="منصة أ/محمد الشامي">
+  <meta property="og:description" content="هنا وصف للموقع في سطري الى سطرين">
+  <meta property="og:locale" content="ar_AR">
+  <!-- <meta property="og:image" content=""> -->
+  <!-- <meta property="og:url" content=""> -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="منصة أ/محمد الشامي">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "منصة أ/محمد الشامي",
+      "alternateName": "mr/mohamed elshami platform",
+      "url": ""
+    }
+    </script>
+
+</head>
+
+<body
+  class="lg:h-dvh lg:overflow-y-hidden font-noto text-pri-text scroll-smooth transition-all selection:bg-pri-item/40 flex flex-row ">
+
+  <div aria-hidden="true" class="
+    pointer-events-none
+    fixed
+    inset-0
+    -z-100
+    overflow-hidden
+    print:hidden
+    bg-pri-bg
+    transition-colors
+  ">
+    <div class="
+      absolute
+      -inset-[25%]
+      animate-spin
+      [animation-duration:90s]!
+      motion-reduce:animate-none
+    ">
+      <i class="
+        absolute
+        top-[10%]
+        left-[15%]
+        size-[42vmax]
+        rounded-full
+        bg-(--pri-item)
+        opacity-25
+        blur-[5vmax]
+      "></i>
+      <i class="
+        absolute
+        right-[10%]
+        bottom-[10%]
+        size-[46vmax]
+        rounded-full
+        bg-(--thr-item)
+        opacity-15
+        blur-[5vmax]
+      "></i>
+    </div>
+  </div>
+
+  <header
+    class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm transition-all z-49 overflow-clip">
+
+    <button id="menuBtn" onclick="toggle_menu()"
+      class="lg:hidden rounded-lg px-0.5 py-2 hover:cursor-pointer active:scale-90 select-none group">
+      <i class="fas fa-bars fa-xl text-sec-bg group-hover:text-sec-item group-active:text-sec-item"></i>
+    </button>
+
+    <div class="hidden lg:block w-24">
+      <a href="/" id="logo">
+        <img src="../img/logo.svg" alt="logo" class="">
+      </a>
+    </div>
+
+    <div class=" flex flex-row gap-6">
+        <button onclick=""
+          class="p-1 flex rounded-full items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
+          <i class="fa-solid fa-bell fa-xl"></i>
+        </button>
+        <button onclick="toggleMode()"
+          class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
+          <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
+          <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
+        </button>
+    </div>
+
+  </header>
+
+  <!-- sm aside menu -->
+
+  <aside id="sideMenu"
+    class="fixed right-0 h-[calc(100dvh-3.5rem)] w-[75%] sm:w-[50%] translate-x-full bottom-0 items-center lg:hidden flex flex-col justify-evenly py-20 font-medium z-50 text-pri-text bg-pri-bg/60 backdrop-blur-sm transition-all">
+    <a href="../home" data-route="home">
+      <i class="fa-solid fa-house fa-xl"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="../profile" data-route="profile">
+      <i class="fa-solid fa-circle-user fa-xl"></i>
+      <span>حسابي</span>
+    </a>
+    <a href="../courses" data-route="courses">
+      <i class="fa-solid fa-layer-group fa-xl"></i>
+      <span>الكورسات</span>
+    </a>
+    <a href="../books" data-route="books">
+      <i class="fa-solid fa-book fa-xl"></i>
+      <span>الكتب</span>
+    </a>
+    <a href="../wallet" data-route="wallet">
+      <i class="fa-solid fa-wallet fa-xl"></i>
+      <span>محفظتي</span>
+    </a>
+    <a href="../settings" data-route="settings">
+      <i class="fa-solid fa-gear fa-xl"></i>
+      <span>الاعدادات</span>
+    </a>
+
+  </aside>
+
+  <div id="sideBlack" class="hidden w-full h-full fixed z-48 bg-sec-bg/20 backdrop-blur-sm lg:hidden transition-all">
+  </div>
+
+  <!-- lg aside bar -->
+
+  <aside id="sideBar"
+    class="right-0 h-dvh mt-14 w-auto translate-x-0 bottom-0 items-center hidden lg:flex flex-col justify-start py-24 font-medium text-pri-text backdrop-blur-sm transition-all overflow-scroll border-l-3 border-l-sec-bg/10 gap-10 px-2">
+
+    <!-- collapse btn -> just hide all spans-->
+
+    <button id="clpsBtn" onclick="collapseBar()"
+      class=" rounded-lg hover:cursor-pointer active:scale-90 select-none group self-end top-0 left-0 p-1 absolute">
+      <i
+        class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:text-sec-item group-active:text-sec-item"></i>
+    </button>
+
+    <a href="../home" data-route="home">
+      <i class="fa-solid fa-house fa-xl"></i>
+      <span>الرئيسية</span>
+    </a>
+    <a href="../profile" data-route="profile">
+      <i class="fa-solid fa-circle-user fa-xl"></i>
+      <span>حسابي</span>
+    </a>
+    <a href="../courses" data-route="courses">
+      <i class="fa-solid fa-layer-group fa-xl"></i>
+      <span>الكورسات</span>
+    </a>
+    <a href="../books" data-route="books">
+      <i class="fa-solid fa-book fa-xl"></i>
+      <span>الكتب</span>
+    </a>
+    <a href="../wallet" data-route="wallet">
+      <i class="fa-solid fa-wallet fa-xl"></i>
+      <span>محفظتي</span>
+    </a>
+    <a href="../settings" data-route="settings">
+      <i class="fa-solid fa-gear fa-xl"></i>
+      <span>الاعدادات</span>
+    </a>
+
+  </aside>
+
+  <!-- Content -->
+  <main class="mt-14 w-full min-h-dvh overflow-y-clip">
+
+    <div class="w-full flex flex-col h-full overflow-y-auto">
+
+      <!-- sections -->
+
+      <section id="courses-sec"
+        class="h-auto w-full py-8 px-8 flex flex-col items-center justify-between gap-8 border-b-3 border-b-sec-bg/10">
+
+        <div id="cor-title" class="w-full h-auto flex flex-col sm:flex-row gap-4 px-12 justify-between items-center">
+          <span class="text-4xl relative flex py-4">جميع الكورسات
+            <div
+              class="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-pri-item to-transparent">
+            </div>
+          </span>
+          <button id="showAllBtn" onclick="refreshCourses('all')"
+            class="group py-2 px-10 border-2 border-sec-bg/40 rounded-xl text-sm w-auto font-semibold shadow-pri-item/50 text-pri-text transition-all hover:cursor-pointer active:scale-95 hover:bg-pri-bg/50 select-none">اظهار
+            الكل
+          </button>
+        </div>
+        <div id="container" dir="rtl"
+          class="h-full w-full flex flex-col md:flex-row flex-wrap items-center justify-evenly gap-8 py-8">
+
+          <!-- courses here -->
+
+
+          <!--  -->
+
+        </div>
+
+      </section>
+
+    </div>
+
+
+
+
+  </main>
+
+  <template id="courseTemplate">
+
+    <div id="course-card"
+      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none">
+      <!-- <i class="fa-regular fa-bookmark fa-2xl translate-y-3 absolute self-end mx-6 text-red-700 px-4
+          "></i> -->
+      <div id="course-image" class="overflow-clip flex-1 aspect-video w-full rounded-2xl">
+        <div
+          class="w-full h-full inset-0 bg-blend-hard-light bg-linear-to-t from-black/50 via-transparent to-transparent">
+        </div>
+      </div>
+
+      <div class="w-full flex-1 flex flex-col px-4 gap-8">
+        <div class="w-full flex-1 flex-row flex items-center justify-between gap-4">
+
+          <span class="font-bold gap-2 text-xl flex flex-col"><span id="course-name">كورس الشهر الأول</span>
+            <span id="course-about" class="font-normal text-sm text-sec-text/80">جرامر + كلمات + اختبار الوحدة
+              الأولى</span>
+          </span>
+          <div id="price-container"
+            class="text-sm bg-pri-bg border-8 border-pri-bg aspect-square rounded-full sm:-translate-y-12 sm:translate-x-4 -translate-y-14">
+            <div
+              class="w-17 h-full flex flex-col items-center px-3 justify-center border-thr-item dark:border-pri-item border-2 rounded-full">
+              <span id="course-price" class="font-bold text-2xl">230</span>
+              <span class="font-normal text-xs">ج.م</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-full flex-1 flex items-center justify-between gap-x-4 gap-y-1 flex-col lg:flex-row">
+          <button id="course-open-btn"
+            class="enterBtn group py-2 px-5 border-2 border-sec-bg/40 rounded-xl text-sm w-full font-semibold text-pri-text transition-all hover:cursor-pointer active:scale-95 hover:bg-pri-bg/50 select-none">المحتوى
+          </button>
+          <button id="course-sub-btn"
+            class="subBtn group py-3 px-6 bg-linear-to-r from-pri-item to-thr-item rounded-xl text-sm w-full font-semibold shadow-lg  shadow-pri-item/50 text-black transition-all hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none">اشترك
+            الان
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </template>
+</body>
+
+</html>

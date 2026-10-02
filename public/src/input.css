@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-noto: "Noto Sans Arabic", sans-serif;
+    --color-pri-bg: var(--pri-bg);
+    --color-sec-bg: var(--sec-bg);
+    --color-thr-bg: var(--thr-bg);
+    --color-pri-text: var(--pri-text);
+    --color-sec-text: var(--sec-text);
+    --color-pri-item: var(--pri-item);
+    --color-sec-item: var(--sec-item);
+    --color-thr-item: var(--thr-item);
+}
+
+@layer components {
+    .unit {
+        @apply flex-3 flex items-center justify-center w-full h-full font-semibold text-2xl;
+    }
+    #exams_info div {
+        @apply h-full flex flex-col justify-around items-center bg-pri-item/30 dark:bg-pri-item/20 rounded-2xl p-3 shadow-lg shadow-sec-bg/10 dark:shadow-none dark:border-2 border-pri-item/30;
+    }
+    #personal_info div {
+        @apply flex flex-col gap-2 border-3 border-thr-bg/50 p-3 py-5 text-center text-nowrap w-auto rounded-2xl;
+    }
+
+    #course {
+        @apply flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-2xl shadow-sec-bg/15 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none;
+    }
+
+    #sideBar a, #sideMenu a {
+        @apply w-full text-center py-3 transition-colors rounded-full flex flex-row items-center justify-start px-4 gap-4 text-nowrap;
+
+        &:hover,
+        &:active {
+            @apply bg-sec-bg text-pri-bg transition-colors;
+        }
+    }
+
+    #sideBar a span, #sideMenu a span {
+        @apply block;
+    }
+
+    #sideBar a i, #sideMenu a i {
+        @apply py-1;
+    }
+}
+
+@layer base {
+
+    svg {
+        display: block;
+    }
+
+    :root {
+        --pri-bg: #f1f5f9;
+        --sec-bg: #0f172a;
+        --thr-bg: #e3e7e9;
+        --pri-text: #0f172a;
+        --sec-text: #19212d;
+        --pri-item: #99f6e4;
+        --sec-item: #26ab9b;
+        --thr-item: #22d3ee;
+    }
+
+    .dark {
+        --pri-bg: #0f172a;
+        --sec-bg: #f1f5f9;
+        --thr-bg: #343a47;
+        --pri-text: #f1f5f9;
+        --sec-text: #d4dce5;
+        --pri-item: #14b8a6;
+        --sec-item: #75e9db;
+        --thr-item: #22d3ee;
+    }
+}
+
+/*  */

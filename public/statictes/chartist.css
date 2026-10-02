@@ -1,0 +1,47 @@
+/* donut */
+.ct-slice-donut {
+    fill: transparent !important;
+    stroke-width: 24px !important;
+}
+.ct-series-b .ct-slice-donut,
+.ct-series-d .ct-slice-donut {
+    stroke: transparent !important;
+    fill: transparent !important;
+    pointer-events: none !important;
+}
+.ct-series-a .ct-slice-donut { stroke: #10b981 !important; }
+.ct-series-c .ct-slice-donut { stroke: #f59e0b !important; }
+
+/* line */
+
+.ct-line {
+    stroke-width: 2.5px !important; 
+    fill: transparent !important;
+}
+
+/* الألوان الأساسية للوضع الفاتح */
+.ct-series-a .ct-line {
+    stroke: #10b981 !important; 
+}
+.ct-series-a .ct-area {
+    fill: #10b981 !important;
+    fill-opacity: 0.15 !important;
+}
+
+/* تكييف الألوان مع الوضع الداكن */
+.dark .ct-series-a .ct-line {
+    stroke: #059669 !important;
+}
+.dark .ct-series-a .ct-area {
+    fill: #059669 !important;
+    fill-opacity: 0.15 !important;
+}
+
+/* تخفيف وضوح خطوط الشبكة الخلفية */
+.ct-grid {
+    stroke: #f3f4f6 !important;
+    stroke-width: 1px !important;
+}
+.dark .ct-grid {
+    stroke: #374151 !important;
+}
