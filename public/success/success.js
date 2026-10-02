@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
 
         if (data.status === "completed") {
-            show("تمت عملية الشحن بنجاح!", "text-thr-item", `رصيدك الحالي: ${data.balance} ج.م`);
+            show("تمت عملية الشحن بنجاح!", "text-green-500", `رصيدك الحالي: ${data.balance} ج.م`);
             return;
         }
         if (data.status !== "pending") {
