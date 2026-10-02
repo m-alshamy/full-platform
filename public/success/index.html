@@ -7,12 +7,14 @@
     <title>نجاح الدفع</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark') } catch (e) { }</script>
     <link href="../dist/output.css" rel="stylesheet">
     <script src="../js/interface.js" defer></script>
 </head>
 
 <body class="bg-pri-bg text-pri-text flex items-center justify-center h-screen">
-    <div class="p-8 rounded-2xl text-center max-w-sm w-full shadow-lg shadow-black/15 dark:shadow-none border-0 dark:border-2 border-thr-bg">
+    <div
+        class="p-8 rounded-2xl text-center max-w-sm w-full shadow-lg shadow-black/15 dark:shadow-none border-0 dark:border-2 border-thr-bg">
         <h1 id="statusTitle" class="text-2xl font-bold mb-4">جاري التحقق...</h1>
         <p id="statusDesc" class="text-gray-400 mb-6"></p>
         <a href="../home" class="text-blue-400 hover:underline">العودة للرئيسية</a>
