@@ -1,11 +1,44 @@
 // تحديد العناصر من شجرة الوثيقة
 const menuBtn = document.getElementById('menuBtn');
 const sideNav = document.getElementById('sideMenu');
+const sideBar = document.getElementById('sideBar');
 const sideBlack = document.getElementById('sideBlack');
 const root = document.querySelector('html')
 const modeBtns = document.querySelectorAll('.modeBtn')
+const clpsBtn = document.getElementById('clpsBtn');
 const THEME_KEY = 'theme'; // 'dark' أو 'light'
 const systemThemeBtn = document.getElementById('systemThemeBtn');
+
+function toggleCollapse() {
+    // إيقاف التنفيذ فوراً إذا لم تكن القائمة موجودة في الصفحة
+    if (!sideBar) return; 
+
+    let spans = sideBar.querySelectorAll('span');
+    
+    spans.forEach(span => {
+        span.classList.toggle('hidden');
+    });
+
+    // جلب حالة الطي من العنصر الأول وحفظها في التخزين المحلي
+    if (spans.length > 0) {
+        let isCollapsed = spans[0].classList.contains('hidden');
+        localStorage.setItem('sidebarCollapsed', isCollapsed);
+    }
+}
+function initSidebarState() {
+    const currentSidebar = document.getElementById('sideBar');
+    
+    if (!currentSidebar) return; 
+
+    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+
+    if (isCollapsed) {
+        let spans = currentSidebar.querySelectorAll('span');
+        spans.forEach(span => {
+            span.classList.add('hidden');
+        });
+    }
+}
 
 function setSystemTheme() {
   try {
@@ -86,3 +119,4 @@ function highlightActiveMenu() {
 
 // تنفيذ الدالة
 highlightActiveMenu();
+initSidebarState();

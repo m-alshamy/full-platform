@@ -124,15 +124,15 @@
     </div>
 
     <div class=" flex flex-row gap-6">
-        <button onclick=""
-          class="p-1 flex rounded-full items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
-          <i class="fa-solid fa-bell fa-xl"></i>
-        </button>
-        <button onclick="toggleMode()"
-          class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
-          <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
-          <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
-        </button>
+      <button onclick=""
+        class="p-1 flex rounded-full items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
+        <i class="fa-solid fa-bell fa-xl"></i>
+      </button>
+      <button onclick="toggleMode()"
+        class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
+        <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
+        <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
+      </button>
     </div>
 
   </header>
@@ -178,7 +178,7 @@
 
     <!-- collapse btn -> just hide all spans-->
 
-    <button id="clpsBtn" onclick="collapseBar()"
+    <button id="clpsBtn" onclick="toggleCollapse()"
       class=" rounded-lg hover:cursor-pointer active:scale-90 select-none group self-end top-0 left-0 p-1 absolute">
       <i
         class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:text-sec-item group-active:text-sec-item"></i>
