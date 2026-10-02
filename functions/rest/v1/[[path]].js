@@ -19,9 +19,9 @@ const REQUIRED_ENV = ["SUPABASE_URL", "SUPABASE_ANON_KEY"];
 
 // الجداول العامة القابلة للكاش + مدة الصلاحية بالثواني
 const CACHEABLE_PREFIXES = [
-  { prefix: "/rest/v1/courses", ttl: 60 * 30 },      // نص ساعة
-  { prefix: "/rest/v1/lectures", ttl: 60 * 60 },     // ساعة
-  { prefix: "/rest/v1/books", ttl: 60 * 60 * 6 },    // 6 ساعات
+  { prefix: "/rest/v1/courses", ttl: 60 * 60 * 24 * 30 },  // 30 يوماً
+  { prefix: "/rest/v1/lectures", ttl: 60 * 60 * 24 * 7 },  // 7 أيام
+  { prefix: "/rest/v1/books", ttl: 60 * 60 * 24 * 30 },    // 30 يوماً
 ];
 
 // هيدرز لا ننسخها من استجابة Supabase عند التخزين (خاصة بالاتصال نفسه، مش بالمحتوى)
