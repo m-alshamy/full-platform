@@ -33,7 +33,7 @@ async function fetchOwnedIds() {
 // الدالة المشتركة: الكورسات الأحدث أولاً + علامة owned لكل كورس
 // limit: عدد الكورسات المطلوب، أو undefined لسحب الكل
 async function fetchCourses(limit) {
-    let query = supabaseClient //supabasePublic
+    let query = supabasePublic
         .from('courses')
         .select(COURSE_COLUMNS)
         .order('id', { ascending: false });
