@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const txId = params.get('tx');
 
     if (!txId) {
-        show("عملية غير صالحة", "text-red-400", "لم يتم العثور على معرف عملية في الرابط.");
+        show("عملية غير صالحة", "text-red-500", "لم يتم العثور على معرف عملية في الرابط.");
         return;
     }
 
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const { data: { session } } = await supabaseClient.auth.getSession();
 
     if (!session) {
-        show("يجب تسجيل الدخول", "text-red-400", "الرجاء تسجيل الدخول للتحقق من حالة العملية.");
+        show("يجب تسجيل الدخول", "text-red-500", "الرجاء تسجيل الدخول للتحقق من حالة العملية.");
         return;
     }
 
@@ -43,26 +43,26 @@ document.addEventListener("DOMContentLoaded", async () => {
             const response = await fetch(url);
             data = await response.json();
         } catch (e) {
-            show("تعذر التحقق", "text-red-400", "فشل الاتصال بالخادم.");
+            show("تعذر التحقق", "text-red-500", "فشل الاتصال بالخادم.");
             return;
         }
 
         if (data.status === "completed") {
-            show("تمت عملية الشحن بنجاح!", "text-green-400", `رصيدك الحالي: ${data.balance} ج.م`);
+            show("تمت عملية الشحن بنجاح!", "text-thr-item", `رصيدك الحالي: ${data.balance} ج.م`);
             return;
         }
         if (data.status !== "pending") {
-            show("تعذر التحقق", "text-red-400", data.error || "حدث خطأ غير متوقع.");
+            show("تعذر التحقق", "text-red-500", data.error || "حدث خطأ غير متوقع.");
             return;
         }
 
-        show("جاري تأكيد الدفع...", "text-yellow-400", "قد يستغرق ذلك بضع ثوانٍ.");
+        show("جاري تأكيد الدفع...", "text-yellow-600", "قد يستغرق ذلك بضع ثوانٍ.");
         await sleep(POLL_INTERVAL_MS);
     }
 
     show(
         "لم يصل تأكيد الدفع بعد",
-        "text-yellow-400",
+        "text-yellow-600",
         "إن كان المبلغ قد خُصم من حسابك فسيُضاف إلى رصيدك تلقائيًا خلال دقائق، حتى لو أغلقت هذه الصفحة."
     );
 });
