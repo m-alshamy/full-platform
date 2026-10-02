@@ -33,7 +33,8 @@
   <script src="../statictes/statictes.js" defer></script>
 
   <script src="../js/interface.js" defer></script>
-  <script src="../js/main.js"></script>
+  <script src="../js/main.js" defer></script>
+  <script src="layout.js" defer></script>
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/3.0.0/typed.umd.min.js"></script> -->
 
@@ -174,7 +175,7 @@
 
     <!-- collapse btn -> just hide all spans-->
 
-    <button id="clpsBtn" onclick="toggleCollapse()"
+    <button id="clpsBtn" onclick="collapseBar()"
       class=" rounded-lg hover:cursor-pointer active:scale-90 select-none group self-end top-0 left-0 p-1 absolute">
       <i
         class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:text-sec-item group-active:text-sec-item"></i>
@@ -234,8 +235,8 @@
                 class="aspect-square w-24 rounded-full bg-thr-bg border-2 border-pri-item shadow-lg shadow-sec-bg/15">
 
               <div class="flex flex-col gap-2 text-center md:text-start">
-                <span class="text-xl font-semibold">محمد احمد محمد الشامي</span>
-                <span class="text-sm font-light">email@gmail.com</span>
+                <span id="header_name" class="text-xl font-semibold"></span>
+                <span id="header_email" class="text-sm font-light"></span>
               </div>
             </div>
 
@@ -266,41 +267,31 @@
                   <span class="font-light">
                     الاسم
                   </span>
-                  <span class="font-semibold">
-                    محمد احمد محمد الشامي
-                  </span>
+                  <span id="acc_fullname" class="font-semibold"></span>
                 </div>
                 <div class="">
                   <span class="font-light">
                     رقم الهاتف
                   </span>
-                  <span class="font-semibold">
-                    01011855878
-                  </span>
+                  <span id="acc_phone" class="font-semibold"></span>
                 </div>
                 <div class="">
                   <span class="font-light">
                     ولي الأمر
                   </span>
-                  <span class="font-semibold">
-                    01040294010
-                  </span>
+                  <span id="acc_parent_phone" class="font-semibold"></span>
                 </div>
                 <div class="">
                   <span class="font-light">
                     الصف الدراسي
                   </span>
-                  <span class="font-semibold">
-                    الثالث الثانوي
-                  </span>
+                  <span id="acc_level" class="font-semibold"></span>
                 </div>
                 <div class="">
                   <span class="font-light">
                     الشعبة الدراسية
                   </span>
-                  <span class="font-semibold">
-                    علمي علوم
-                  </span>
+                  <span id="acc_branch" class="font-semibold"></span>
                 </div>
 
               </div>
