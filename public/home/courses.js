@@ -148,4 +148,16 @@ async function refreshCourses(num) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', refreshCourses('owend'));
+function openCourse(courseId) {
+    window.location.href = `/course?id=${courseId}`;
+    console.log('open', courseId);
+}
+// تفويض الأحداث: مستمع واحد للحاوية يخدم كل الأزرار حتى بعد إعادة الرسم
+document.addEventListener('DOMContentLoaded', () => {
+    refreshCourses('owend');
+
+    document.getElementById('container')?.addEventListener('click', (e) => {
+        const openBtn = e.target.closest('.enterBtn');
+        if (openBtn) return openCourse(openBtn.dataset.courseId);
+    });
+});
