@@ -148,6 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function openCourse(courseId) {
-    // TODO: الانتقال لصفحة محتوى الكورس
+    window.location.href = `/course?id=${courseId}`;
     console.log('open', courseId);
 }
