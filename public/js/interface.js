@@ -8,36 +8,60 @@ const modeBtns = document.querySelectorAll('.modeBtn')
 const clpsBtn = document.getElementById('clpsBtn');
 const THEME_KEY = 'theme'; // 'dark' أو 'light'
 const systemThemeBtn = document.getElementById('systemThemeBtn');
+const backButton = document.getElementById('backBtn');
+
+if (backButton) {
+  backButton.addEventListener('click', () => {
+    const referrer = document.referrer;
+    const currentHost = window.location.hostname;
+
+    if (referrer) {
+      try {
+        const referrerHost = new URL(referrer).hostname;
+
+        if (referrerHost === currentHost) {
+          window.history.back();
+          return;
+        }
+      } catch (error) {
+        console.error('Invalid URL:', error);
+      }
+    }
+
+    window.location.href = '/';
+  });
+}
+
 
 function toggleCollapse() {
-    // إيقاف التنفيذ فوراً إذا لم تكن القائمة موجودة في الصفحة
-    if (!sideBar) return; 
+  // إيقاف التنفيذ فوراً إذا لم تكن القائمة موجودة في الصفحة
+  if (!sideBar) return;
 
-    let spans = sideBar.querySelectorAll('span');
-    
-    spans.forEach(span => {
-        span.classList.toggle('hidden');
-    });
+  let spans = sideBar.querySelectorAll('span');
 
-    // جلب حالة الطي من العنصر الأول وحفظها في التخزين المحلي
-    if (spans.length > 0) {
-        let isCollapsed = spans[0].classList.contains('hidden');
-        localStorage.setItem('sidebarCollapsed', isCollapsed);
-    }
+  spans.forEach(span => {
+    span.classList.toggle('hidden');
+  });
+
+  // جلب حالة الطي من العنصر الأول وحفظها في التخزين المحلي
+  if (spans.length > 0) {
+    let isCollapsed = spans[0].classList.contains('hidden');
+    localStorage.setItem('sidebarCollapsed', isCollapsed);
+  }
 }
 function initSidebarState() {
-    const currentSidebar = document.getElementById('sideBar');
-    
-    if (!currentSidebar) return; 
+  const currentSidebar = document.getElementById('sideBar');
 
-    const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+  if (!currentSidebar) return;
 
-    if (isCollapsed) {
-        let spans = currentSidebar.querySelectorAll('span');
-        spans.forEach(span => {
-            span.classList.add('hidden');
-        });
-    }
+  const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+
+  if (isCollapsed) {
+    let spans = currentSidebar.querySelectorAll('span');
+    spans.forEach(span => {
+      span.classList.add('hidden');
+    });
+  }
 }
 
 function setSystemTheme() {

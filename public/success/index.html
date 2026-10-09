@@ -13,6 +13,47 @@
 </head>
 
 <body class="bg-pri-bg text-pri-text flex items-center justify-center h-screen">
+    <div aria-hidden="true" class="
+    pointer-events-none
+    transform-gpu
+    will-change-transform
+    fixed
+    inset-0
+    -z-100
+    overflow-hidden
+    print:hidden
+    bg-pri-bg
+    transition-colors
+  ">
+        <div class="
+      absolute
+      -inset-[25%]
+      animate-spin
+      [animation-duration:90s]!
+      motion-reduce:animate-none
+    ">
+            <i class="
+        absolute
+        top-[10%]
+        left-[15%]
+        size-[42vmax]
+        rounded-full
+        bg-(--pri-item)
+        opacity-25
+        blur-[5vmax]
+      "></i>
+            <i class="
+        absolute
+        right-[10%]
+        bottom-[10%]
+        size-[46vmax]
+        rounded-full
+        bg-(--thr-item)
+        opacity-15
+        blur-[5vmax]
+      "></i>
+        </div>
+    </div>
     <div
         class="p-8 rounded-2xl text-center max-w-sm w-full shadow-lg shadow-black/15 dark:shadow-none border-0 dark:border-2 border-thr-bg">
         <h1 id="statusTitle" class="text-2xl font-bold mb-4">جاري التحقق...</h1>
