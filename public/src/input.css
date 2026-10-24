@@ -33,7 +33,7 @@
 
         &:hover,
         &:active {
-            @apply ring ring-sec-bg transition-colors select-none;
+            @apply opacity-80 select-none;
         }
     }
 

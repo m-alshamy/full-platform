@@ -105,7 +105,7 @@
   </div>
 
   <header
-    class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm transition-all z-49 overflow-clip">
+    class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm transition-all z-49 overflow-clip landscape:hidden md:landscape:flex">
 
     <button id="backBtn" onclick=""
       class="group py-2 px-4 sm:px-10 border-2 border-sec-bg/40 rounded-xl text-sm w-auto font-semibold shadow-pri-item/50 text-pri-text transition-all hover:cursor-pointer active:scale-95 hover:bg-pri-bg/50 select-none gap-2 flex flex-row items-center justify-between">
@@ -113,19 +113,17 @@
       <span>العودة</span>
     </button>
 
-    <div class=" flex flex-row gap-6">
       <button onclick="toggleMode()"
-        class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
-        <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
-        <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
+        class="modeBtn flex w-12 rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none transition-colors text-sec-bg">
+        <div class="block dark:hidden"><i class="far fa-sun fa-xl"></i></div>
+        <div class="hidden dark:block"><i class="fas fa-moon fa-xl"></i></div>
       </button>
-    </div>
 
   </header>
 
 
   <!-- Content -->
-  <main class="mt-14 w-full overflow-y-clip lg:h-[calc(100dvh-3.5rem)]">
+  <main class="mt-14 landscape:mt-0 md:landscape:mt-14 w-full overflow-y-clip lg:h-[calc(100dvh-3.5rem)]">
 
     <div class="w-full flex flex-col h-full overflow-y-auto">
 
@@ -206,7 +204,7 @@
 
           <!-- القسم الثاني: قائمة عناصر الدرس (قابلة للتمرير المستقل في الشاشات الكبيرة) -->
           <div
-            class="w-full lg:w-1/3 flex flex-col gap-3 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            class="w-full lg:landscape:w-2/3 landscape:w-full flex flex-col gap-3 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
             <!-- عنصر درس تجريبي -->
             <button
@@ -234,10 +232,12 @@
 
           <!-- player -->
 
-          <div
-            class="w-full lg:w-2/3 sticky top-20 z-40 dark:bg-sec-bg/10 bg-sec-bg/5 rounded-2xl shadow-lg aspect-video flex items-center justify-center overflow-hidden shrink-0">
-            <!-- استبدل هذا الجزء بعنصر video أو iframe -->
-            <span class="text-pri-txet">مشغل الفيديو</span>
+          <div class="w-full flex items-center justify-center">
+            <div
+              class="w-full lg:landscape:w-full landscape:w-2/3 sticky top-20 z-40 dark:bg-sec-bg/10 bg-sec-bg/5 rounded-2xl shadow-lg aspect-video flex items-center justify-center overflow-hidden shrink-0">
+              <!-- استبدل هذا الجزء بعنصر video أو iframe -->
+              <span class="text-pri-txet">مشغل الفيديو</span>
+            </div>
           </div>
 
         </div>

@@ -112,7 +112,7 @@
   </div>
 
   <header
-    class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm transition-all z-49 overflow-clip">
+    class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm z-49 overflow-clip landscape:hidden md:landscape:flex">
 
     <button id="menuBtn" onclick="toggle_menu()"
       class="lg:hidden rounded-lg px-0.5 py-2 hover:cursor-pointer active:scale-90 select-none group">
@@ -121,20 +121,20 @@
 
     <div class="hidden lg:block w-24">
       <a href="/" id="logo">
-        <img src="../img/logo.svg" alt="logo" class="">
+        <img src="../img/logo.svg" alt="logo" class=""">
       </a>
     </div>
 
     <div class=" flex flex-row gap-6">
-      <button onclick=""
-        class="p-1 flex rounded-full items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
-        <i class="fa-solid fa-bell fa-xl"></i>
-      </button>
-      <button onclick="toggleMode()"
-        class="modeBtn pt-0.5 px-1 flex w-12 rounded-full bg-sec-bg items-center hover:brightness-90 hover:cursor-pointer active:scale-95 select-none transition-transform">
-        <div class="block dark:hidden"><i class="far fa-sun fa-sm text-pri-bg"></i></div>
-        <div class="hidden dark:block"><i class="fas fa-moon fa-sm text-pri-bg"></i></div>
-      </button>
+        <button onclick=""
+          class="p-1 flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none transition-colors">
+          <i class="fa-solid fa-bell fa-xl"></i>
+        </button>
+        <button onclick="toggleMode()"
+          class="modeBtn flex w-12 rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
+          <div class="block dark:hidden"><i class="far fa-sun fa-xl"></i></div>
+          <div class="hidden dark:block"><i class="fas fa-moon fa-xl"></i></div>
+        </button>
     </div>
 
   </header>
@@ -183,7 +183,7 @@
     <button id="clpsBtn" onclick="toggleCollapse()"
       class=" rounded-lg hover:cursor-pointer active:scale-90 select-none group self-end top-0 left-0 p-1 absolute">
       <i
-        class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:text-sec-item group-active:text-sec-item"></i>
+        class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:hover:opacity-80 group-active:opacity-80"></i>
     </button>
 
     <a href="../home" data-route="home">

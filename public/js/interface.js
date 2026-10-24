@@ -91,7 +91,7 @@ function saveTheme(theme) {
 function applyTheme(theme) {
   const isDark = theme === 'dark';
   root.classList.toggle('dark', isDark);
-  modeBtns.forEach(btn => btn.classList.toggle('justify-end', isDark));
+  // modeBtns.forEach(btn => btn.classList.toggle('justify-end', isDark));
 }
 
 function toggleMode() {
