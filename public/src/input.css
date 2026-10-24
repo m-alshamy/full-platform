@@ -14,6 +14,10 @@
 }
 
 @layer components {
+    .ph {
+        @apply inline-block;
+    }
+
     .unit {
         @apply flex-3 flex items-center justify-center w-full h-full font-semibold text-2xl;
     }
@@ -33,22 +37,22 @@
     /* ===== الشريط الجانبي ===== */
     #sideBar a,
     #sideMenu a {
-        @apply w-full py-2 rounded-full flex flex-row items-center text-nowrap;
+        @apply w-full py-2 rounded-l-lg flex flex-row items-center text-nowrap text-pri-text/50 border-r-pri-item;
 
         &:hover,
         &:active {
-            @apply opacity-80;
+            @apply text-pri-text;
         }
     }
 
     /* القائمة الصغيرة (الموبايل) */
     #sideMenu a {
-        @apply w-[75%] px-4 gap-3;
+        @apply w-[90%] rounded-l-lg px-4 gap-3 right-0;
     }
 
     /* الشريط الكبير: العرض مباشرة هنا */
     #sideBar {
-        @apply w-48 shrink-0 px-2;
+        @apply w-48 shrink-0 pl-2;
         /* مفتوح: 14rem */
     }
 
@@ -73,10 +77,6 @@
 
     html[data-sb-collapsed="true"] #sideBar a span {
         @apply opacity-0;
-    }
-
-    html[data-sb-collapsed="true"] #clpsBtn i {
-        transform: scaleX(-1);
     }
 
     /* الحركة بعد أول رسم فقط */

@@ -127,7 +127,7 @@
 
     <button id="menuBtn"
       class="lg:hidden rounded-lg px-0.5 py-2 hover:cursor-pointer active:scale-90 select-none group">
-      <i class="fas fa-bars fa-xl text-sec-bg group-hover:opacity-80 group-active:opacity-80"></i>
+      <i class="ph ph-list text-3xl text-sec-bg group-hover:opacity-80 group-active:opacity-80"></i>
     </button>
 
     <div class="hidden lg:block w-24">
@@ -137,15 +137,15 @@
     </div>
 
     <div class=" flex flex-row gap-6">
-        <button onclick=""
-          class="flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none">
-          <i class="ph ph-bell text-3xl"></i>
-        </button>
-        <button onclick="toggleMode()"
-          class="modeBtn leading-none inline-flex rounded-full items-center justify-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
-          <div class="hidden dark:block"><i class="ph ph-sun text-3xl"></i></div>
-          <div class="block dark:hidden"><i class="ph ph-moon text-3xl"></i></div>
-        </button>
+      <button onclick=""
+        class="flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none">
+        <i class="ph ph-bell text-3xl"></i>
+      </button>
+      <button onclick="toggleMode()"
+        class="modeBtn leading-none inline-flex rounded-full items-center justify-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
+        <div class="hidden dark:block"><i class="ph ph-sun text-3xl"></i></div>
+        <div class="block dark:hidden"><i class="ph ph-moon text-3xl"></i></div>
+      </button>
     </div>
 
   </header>
@@ -153,7 +153,7 @@
   <!-- sm aside menu -->
 
   <aside id="sideMenu"
-    class="fixed right-0 h-[calc(100dvh-3.5rem)] w-[75%] sm:w-[50%] translate-x-full bottom-0 items-center lg:hidden flex flex-col justify-evenly py-20 font-medium z-50 text-pri-text bg-pri-bg/60 backdrop-blur-sm transition-transform portrait:flex landscape:hidden">
+    class="fixed right-0 h-[calc(100dvh-3.5rem)] w-[75%] sm:w-[50%] translate-x-full bottom-0 items-start lg:hidden flex flex-col justify-evenly py-20 font-medium z-50 text-pri-text bg-pri-bg/60 backdrop-blur-sm transition-transform portrait:flex landscape:hidden [--active-bg:var(--color-sec-bg)]/6">
     <a href="../home" data-route="home">
       <i class="ph ph-house text-3xl"></i>
       <span>الرئيسية</span>
@@ -188,13 +188,12 @@
   <!-- lg aside bar -->
 
   <aside id="sideBar"
-    class="relative h-[calc(100dvh-3.5rem)] mt-14 lg:landscape:flex items-center hidden lg:flex flex-col justify-start py-24 font-medium text-pri-text backdrop-blur-sm overflow-x-hidden overflow-y-auto border-l-3 border-l-sec-bg/10 gap-10 portrait:hidden landscape:hidden">
+    class="relative h-[calc(100dvh-3.5rem)] mt-14 lg:landscape:flex items-center hidden lg:flex flex-col justify-start py-24 font-medium text-pri-text backdrop-blur-sm overflow-x-hidden overflow-y-auto border-l-3 border-l-sec-bg/10 gap-10 portrait:hidden landscape:hidden [--active-bg:var(--color-thr-bg)]/70">
     <!-- collapse btn -> just hide all spans-->
 
     <button id="clpsBtn" onclick="toggleCollapse()"
       class=" rounded-lg hover:cursor-pointer active:scale-95 select-none group self-end top-0 left-0 p-1 absolute">
-      <i
-        class="fa-regular fa-square-caret-right fa-xl text-sec-bg group-hover:hover:opacity-80 group-active:opacity-80"></i>
+      <i class="ph ph-sidebar-simple text-2xl text-sec-bg group-hover:hover:opacity-80 group-active:opacity-80"></i>
     </button>
 
     <a href="../home" data-route="home">
@@ -268,7 +267,10 @@
           </a>
 
           <span class="text-sec-text font-light sm:w-55">هنا وصف للموقع في قسم التذييل</span>
-          <span class="text-sec-text text-sm select-none">copy right @ جميع الحقوق محفوظة</span>
+          <div class="flex flex-col py-4 gap-2">
+            <span class="text-sec-text text-sm select-none">جميع الحقوق محفوظة @2026-2027</span>
+            <span class="text-sec-text font-light text-xs select-none">Developed By Elshami</span>
+          </div>
         </div>
 
         <!-- links -->

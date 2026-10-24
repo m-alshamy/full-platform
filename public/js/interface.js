@@ -124,7 +124,7 @@ function highlightActiveMenu() {
 
   // تطبيق التنسيقات على العناصر المطابقة
   activeLinks.forEach(link => {
-    link.classList.add('bg-sec-bg', 'text-pri-bg');
+    link.classList.add('bg-[var(--active-bg)]', 'border-r-6', 'text-pri-text');
   });
 }
 
