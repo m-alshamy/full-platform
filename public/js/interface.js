@@ -33,58 +33,31 @@ if (backButton) {
 }
 
 
+// ===== الشريط الجانبي =====
+const SB_KEY = 'sidebarCollapsed';
+
+function setCollapsed(collapsed, save = true) {
+  if (collapsed) root.dataset.sbCollapsed = 'true';
+  else delete root.dataset.sbCollapsed;
+
+  clpsBtn?.setAttribute('aria-expanded', String(!collapsed));
+  if (save) {
+    try { localStorage.setItem(SB_KEY, collapsed); } catch (e) { }
+  }
+}
+
 function toggleCollapse() {
-  const sideBar = document.getElementById('sideBar');
-  if (!sideBar) return;
-
-  const spans = sideBar.querySelectorAll('span');
-  const links = sideBar.querySelectorAll('a');
-
-  // تبديل إخفاء النصوص
-  spans.forEach(span => span.classList.toggle('hidden'));
-
-  // معرفة الحالة الحالية بعد التبديل
-  const isCollapsed = spans.length > 0 && spans[0].classList.contains('hidden');
-
-  // تبديل كلاسات التوسيط والحشو على الروابط
-  links.forEach(a => {
-    a.classList.toggle('justify-center', isCollapsed);
-    a.classList.toggle('px-8', !isCollapsed);
-    a.classList.toggle('px-4', isCollapsed);
-  });
-
-  // حفظ الحالة
-  localStorage.setItem('sidebarCollapsed', isCollapsed);
+  setCollapsed(root.dataset.sbCollapsed !== 'true');
 }
 
 function initSidebarState() {
-  const currentSidebar = document.getElementById('sideBar');
-  if (!currentSidebar) return;
+  setCollapsed(root.dataset.sbCollapsed === 'true', false);
 
-  const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
-  const spans = currentSidebar.querySelectorAll('span');
-  const links = currentSidebar.querySelectorAll('a');
-
-  // تطبيق الحالة على النصوص
-  spans.forEach(span => {
-    span.classList.toggle('hidden', isCollapsed);
+  sideBar?.querySelectorAll('a').forEach(a => {
+    a.title = a.querySelector('span')?.textContent.trim() ?? '';
   });
 
-  // تطبيق التوسيط والحشو على الروابط
-  links.forEach(a => {
-    a.classList.toggle('justify-center', isCollapsed);
-    a.classList.toggle('px-8', !isCollapsed);
-    a.classList.toggle('px-4', isCollapsed);
-  });
-}
-
-function setSystemTheme() {
-  try {
-    localStorage.removeItem(THEME_KEY);
-  } catch (e) { }
-
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(systemPrefersDark ? 'dark' : 'light');
+  requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('sb-ready')));
 }
 
 // دالة للتبديل بين حالات إظهار وإخفاء القائمة

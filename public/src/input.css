@@ -17,9 +17,11 @@
     .unit {
         @apply flex-3 flex items-center justify-center w-full h-full font-semibold text-2xl;
     }
+
     #exams_info div {
         @apply h-full flex flex-col justify-around items-center bg-pri-item/30 dark:bg-pri-item/20 rounded-2xl p-3 shadow-lg shadow-sec-bg/10 dark:shadow-none dark:border-2 border-pri-item/30;
     }
+
     #personal_info div {
         @apply flex flex-col gap-2 border-3 border-thr-bg/50 p-3 py-5 text-center text-nowrap w-auto rounded-2xl;
     }
@@ -28,20 +30,80 @@
         @apply flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-2xl shadow-sec-bg/15 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none;
     }
 
-    #sideBar a, #sideMenu a {
-        @apply w-full text-center py-2 transition-colors rounded-full flex flex-row items-center px-4 gap-3 text-nowrap;
+    /* ===== الشريط الجانبي ===== */
+    #sideBar a,
+    #sideMenu a {
+        @apply w-full py-2 rounded-full flex flex-row items-center text-nowrap;
 
         &:hover,
         &:active {
             @apply opacity-80;
         }
     }
+
+    /* القائمة الصغيرة (الموبايل) */
     #sideMenu a {
-        @apply w-[75%];
+        @apply w-[75%] px-4 gap-3;
     }
 
-    #sideBar a span, #sideMenu a span {
-        @apply block;
+    /* الشريط الكبير: العرض مباشرة هنا */
+    #sideBar {
+        @apply w-48 shrink-0 px-2;
+        /* مفتوح: 14rem */
+    }
+
+    #sideBar a {
+        @apply px-0 gap-0;
+    }
+
+    /* صندوق الأيقونة بعرض ثابت = عرض الشريط المطوي - الحشو - الحد → توسّط تلقائي */
+    #sideBar a i {
+        @apply shrink-0 w-14 text-center;
+        /* 3.5rem */
+    }
+
+    #sideBar a span {
+        @apply block overflow-hidden whitespace-nowrap pe-4 opacity-100;
+    }
+
+    /* الحالة المطوية */
+    html[data-sb-collapsed="true"] #sideBar {
+        @apply w-19;
+    }
+
+    html[data-sb-collapsed="true"] #sideBar a span {
+        @apply opacity-0;
+    }
+
+    html[data-sb-collapsed="true"] #clpsBtn i {
+        transform: scaleX(-1);
+    }
+
+    /* الحركة بعد أول رسم فقط */
+    html.sb-ready #sideBar {
+        transition: width .3s ease;
+    }
+
+    html.sb-ready #sideBar a {
+        transition: background-color .2s, opacity .2s;
+    }
+
+    html.sb-ready #sideBar a span {
+        transition: opacity .2s ease;
+    }
+
+    html.sb-ready #clpsBtn i {
+        transition: transform .3s ease;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+        html.sb-ready #sideBar,
+        html.sb-ready #sideBar a,
+        html.sb-ready #sideBar a span,
+        html.sb-ready #clpsBtn i {
+            transition: none;
+        }
     }
 }
 

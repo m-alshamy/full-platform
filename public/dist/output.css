@@ -647,6 +647,9 @@
   .overflow-x-auto {
     overflow-x: auto;
   }
+  .overflow-x-hidden {
+    overflow-x: hidden;
+  }
   .overflow-y-auto {
     overflow-y: auto;
   }
@@ -1810,24 +1813,64 @@
     width: 100%;
     flex-direction: row;
     align-items: center;
-    gap: calc(var(--spacing) * 3);
     border-radius: calc(infinity * 1px);
-    padding-inline: calc(var(--spacing) * 4);
     padding-block: calc(var(--spacing) * 2);
-    text-align: center;
     text-wrap: nowrap;
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
     &:hover, &:active {
       opacity: 80%;
     }
   }
   #sideMenu a {
     width: 75%;
+    gap: calc(var(--spacing) * 3);
+    padding-inline: calc(var(--spacing) * 4);
   }
-  #sideBar a span, #sideMenu a span {
+  #sideBar {
+    width: calc(var(--spacing) * 48);
+    flex-shrink: 0;
+    padding-inline: calc(var(--spacing) * 2);
+  }
+  #sideBar a {
+    gap: calc(var(--spacing) * 0);
+    padding-inline: calc(var(--spacing) * 0);
+  }
+  #sideBar a i {
+    width: calc(var(--spacing) * 14);
+    flex-shrink: 0;
+    text-align: center;
+  }
+  #sideBar a span {
     display: block;
+    overflow: hidden;
+    padding-inline-end: calc(var(--spacing) * 4);
+    white-space: nowrap;
+    opacity: 100%;
+  }
+  html[data-sb-collapsed="true"] #sideBar {
+    width: calc(var(--spacing) * 19);
+  }
+  html[data-sb-collapsed="true"] #sideBar a span {
+    opacity: 0%;
+  }
+  html[data-sb-collapsed="true"] #clpsBtn i {
+    transform: scaleX(-1);
+  }
+  html.sb-ready #sideBar {
+    transition: width .3s ease;
+  }
+  html.sb-ready #sideBar a {
+    transition: background-color .2s, opacity .2s;
+  }
+  html.sb-ready #sideBar a span {
+    transition: opacity .2s ease;
+  }
+  html.sb-ready #clpsBtn i {
+    transition: transform .3s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.sb-ready #sideBar, html.sb-ready #sideBar a, html.sb-ready #sideBar a span, html.sb-ready #clpsBtn i {
+      transition: none;
+    }
   }
 }
 @layer base {
