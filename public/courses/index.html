@@ -20,6 +20,16 @@
   <noscript>
     <link rel="stylesheet" href="../css/all.min.css">
   </noscript>
+
+  <link rel="stylesheet" href="../assets/regular/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="../assets/regular/style.css">
+  </noscript>
+  <link rel="stylesheet" href="../assets/fill/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="../assets/fill/style.css">
+  </noscript>
+
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet"
     media="print" onload="this.media='all'">
   <noscript>
@@ -110,7 +120,6 @@
       "></i>
     </div>
   </div>
-
   <header
     class="fixed w-full flex justify-between px-10 h-14 items-center text-pri-text border-b-3 border-b-sec-bg/10 backdrop-blur-sm z-49 overflow-clip landscape:hidden lg:landscape:flex">
 
@@ -121,20 +130,20 @@
 
     <div class="hidden lg:block w-24">
       <a href="/" id="logo">
-        <img src="../img/logo.svg" alt="logo" class=""">
+        <img src="../img/logo.svg" alt="logo" class="">
       </a>
     </div>
 
     <div class=" flex flex-row gap-6">
-        <button onclick=""
-          class="p-1 flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none transition-colors">
-          <i class="fa-solid fa-bell fa-xl"></i>
-        </button>
-        <button onclick="toggleMode()"
-          class="modeBtn flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
-          <div class="hidden dark:block"><i class="far fa-sun fa-xl"></i></div>
-          <div class="block dark:hidden"><i class="fas fa-moon fa-xl"></i></div>
-        </button>
+      <button onclick=""
+        class="flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none">
+        <i class="ph ph-bell text-3xl"></i>
+      </button>
+      <button onclick="toggleMode()"
+        class="modeBtn leading-none inline-flex rounded-full items-center justify-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
+        <div class="hidden dark:block"><i class="ph ph-sun text-3xl"></i></div>
+        <div class="block dark:hidden"><i class="ph ph-moon text-3xl"></i></div>
+      </button>
     </div>
 
   </header>
@@ -144,27 +153,27 @@
   <aside id="sideMenu"
     class="fixed right-0 h-[calc(100dvh-3.5rem)] w-[75%] sm:w-[50%] translate-x-full bottom-0 items-center lg:hidden flex flex-col justify-evenly py-20 font-medium z-50 text-pri-text bg-pri-bg/60 backdrop-blur-sm transition-transform portrait:flex landscape:hidden">
     <a href="../home" data-route="home">
-      <i class="fa-solid fa-house fa-xl"></i>
+      <i class="ph ph-house text-3xl"></i>
       <span>الرئيسية</span>
     </a>
     <a href="../profile" data-route="profile">
-      <i class="fa-solid fa-circle-user fa-xl"></i>
+      <i class="ph ph-user text-3xl"></i>
       <span>حسابي</span>
     </a>
     <a href="../courses" data-route="courses">
-      <i class="fa-solid fa-layer-group fa-xl"></i>
+      <i class="ph ph-stack text-3xl"></i>
       <span>الكورسات</span>
     </a>
     <a href="../books" data-route="books">
-      <i class="fa-solid fa-book fa-xl"></i>
+      <i class="ph ph-book text-3xl"></i>
       <span>الكتب</span>
     </a>
     <a href="../wallet" data-route="wallet">
-      <i class="fa-solid fa-wallet fa-xl"></i>
+      <i class="ph ph-wallet text-3xl"></i>
       <span>محفظتي</span>
     </a>
     <a href="../settings" data-route="settings">
-      <i class="fa-solid fa-gear fa-xl"></i>
+      <i class="ph ph-gear text-3xl"></i>
       <span>الاعدادات</span>
     </a>
 
@@ -177,8 +186,7 @@
   <!-- lg aside bar -->
 
   <aside id="sideBar"
-    class="right-0 h-dvh mt-14 lg:landscape:flex w-auto translate-x-0 bottom-0 items-center hidden lg:flex flex-col justify-start py-24 font-medium text-pri-text backdrop-blur-sm overflow-scroll border-l-3 border-l-sec-bg/10 gap-10 px-2 portrait:hidden landscape:hidden">
-
+    class="relative h-[calc(100dvh-3.5rem)] mt-14 lg:landscape:flex items-center hidden lg:flex flex-col justify-start py-24 font-medium text-pri-text backdrop-blur-sm overflow-x-hidden overflow-y-auto border-l-3 border-l-sec-bg/10 gap-10 portrait:hidden landscape:hidden">
     <!-- collapse btn -> just hide all spans-->
 
     <button id="clpsBtn" onclick="toggleCollapse()"
@@ -188,27 +196,27 @@
     </button>
 
     <a href="../home" data-route="home">
-      <i class="fa-solid fa-house fa-xl"></i>
+      <i class="ph ph-house text-3xl"></i>
       <span>الرئيسية</span>
     </a>
     <a href="../profile" data-route="profile">
-      <i class="fa-solid fa-circle-user fa-xl"></i>
+      <i class="ph ph-user text-3xl"></i>
       <span>حسابي</span>
     </a>
     <a href="../courses" data-route="courses">
-      <i class="fa-solid fa-layer-group fa-xl"></i>
+      <i class="ph ph-stack text-3xl"></i>
       <span>الكورسات</span>
     </a>
     <a href="../books" data-route="books">
-      <i class="fa-solid fa-book fa-xl"></i>
+      <i class="ph ph-book text-3xl"></i>
       <span>الكتب</span>
     </a>
     <a href="../wallet" data-route="wallet">
-      <i class="fa-solid fa-wallet fa-xl"></i>
+      <i class="ph ph-wallet text-3xl"></i>
       <span>محفظتي</span>
     </a>
     <a href="../settings" data-route="settings">
-      <i class="fa-solid fa-gear fa-xl"></i>
+      <i class="ph ph-gear text-3xl"></i>
       <span>الاعدادات</span>
     </a>
 

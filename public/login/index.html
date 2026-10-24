@@ -21,6 +21,16 @@
     <noscript>
         <link rel="stylesheet" href="../css/all.min.css">
     </noscript>
+
+    <link rel="stylesheet" href="../assets/regular/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="../assets/regular/style.css">
+    </noscript>
+    <link rel="stylesheet" href="../assets/fill/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="../assets/fill/style.css">
+    </noscript>
+
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
     <noscript>
@@ -102,9 +112,9 @@
         </div>
 
       <button onclick=" toggleMode()"
-                    class="modeBtn flex rounded-full items-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none transition-colors text-sec-bg">
-                <div class="hidden dark:block"><i class="far fa-sun fa-xl"></i></div>
-                <div class="block dark:hidden"><i class="fas fa-moon fa-xl"></i></div>
+                    class="modeBtn leading-none inline-flex rounded-full items-center justify-center hover:opacity-80 hover:cursor-pointer active:scale-95 select-none text-sec-bg">
+                <div class="hidden dark:block"><i class="ph ph-sun text-3xl"></i></div>
+                <div class="block dark:hidden"><i class="ph ph-moon text-3xl"></i></div>
                 </button>
 
     </header>
