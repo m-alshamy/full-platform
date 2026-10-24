@@ -41,7 +41,7 @@
     }
 
     #sideBar a span, #sideMenu a span {
-        @apply hidden;
+        @apply block;
     }
 
     #sideBar a i, #sideMenu a i {
