@@ -29,7 +29,7 @@
     }
 
     #sideBar a, #sideMenu a {
-        @apply w-full text-center py-3 transition-colors rounded-full flex flex-row items-center justify-start px-4 gap-4 text-nowrap;
+        @apply w-full text-center py-2 transition-colors rounded-full flex flex-row items-center px-4 gap-3 text-nowrap;
 
         &:hover,
         &:active {
@@ -42,10 +42,6 @@
 
     #sideBar a span, #sideMenu a span {
         @apply block;
-    }
-
-    #sideBar a i, #sideMenu a i {
-        @apply py-1;
     }
 }
 

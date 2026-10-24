@@ -34,34 +34,48 @@ if (backButton) {
 
 
 function toggleCollapse() {
-  // إيقاف التنفيذ فوراً إذا لم تكن القائمة موجودة في الصفحة
+  const sideBar = document.getElementById('sideBar');
   if (!sideBar) return;
 
-  let spans = sideBar.querySelectorAll('span');
+  const spans = sideBar.querySelectorAll('span');
+  const links = sideBar.querySelectorAll('a');
 
-  spans.forEach(span => {
-    span.classList.toggle('hidden');
+  // تبديل إخفاء النصوص
+  spans.forEach(span => span.classList.toggle('hidden'));
+
+  // معرفة الحالة الحالية بعد التبديل
+  const isCollapsed = spans.length > 0 && spans[0].classList.contains('hidden');
+
+  // تبديل كلاسات التوسيط والحشو على الروابط
+  links.forEach(a => {
+    a.classList.toggle('justify-center', isCollapsed);
+    a.classList.toggle('px-8', !isCollapsed);
+    a.classList.toggle('px-4', isCollapsed);
   });
 
-  // جلب حالة الطي من العنصر الأول وحفظها في التخزين المحلي
-  if (spans.length > 0) {
-    let isCollapsed = spans[0].classList.contains('hidden');
-    localStorage.setItem('sidebarCollapsed', isCollapsed);
-  }
+  // حفظ الحالة
+  localStorage.setItem('sidebarCollapsed', isCollapsed);
 }
+
 function initSidebarState() {
   const currentSidebar = document.getElementById('sideBar');
-
   if (!currentSidebar) return;
 
   const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+  const spans = currentSidebar.querySelectorAll('span');
+  const links = currentSidebar.querySelectorAll('a');
 
-  if (isCollapsed) {
-    let spans = currentSidebar.querySelectorAll('span');
-    spans.forEach(span => {
-      span.classList.add('hidden');
-    });
-  }
+  // تطبيق الحالة على النصوص
+  spans.forEach(span => {
+    span.classList.toggle('hidden', isCollapsed);
+  });
+
+  // تطبيق التوسيط والحشو على الروابط
+  links.forEach(a => {
+    a.classList.toggle('justify-center', isCollapsed);
+    a.classList.toggle('px-8', !isCollapsed);
+    a.classList.toggle('px-4', isCollapsed);
+  });
 }
 
 function setSystemTheme() {
