@@ -365,18 +365,6 @@
   .mb-6 {
     margin-bottom: calc(var(--spacing) * 6);
   }
-  .line-clamp-2 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-  .line-clamp-6 {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6;
-  }
   .block {
     display: block;
   }
@@ -454,17 +442,11 @@
   .w-4 {
     width: calc(var(--spacing) * 4);
   }
-  .w-12 {
-    width: calc(var(--spacing) * 12);
-  }
   .w-17 {
     width: calc(var(--spacing) * 17);
   }
   .w-24 {
     width: calc(var(--spacing) * 24);
-  }
-  .w-30 {
-    width: calc(var(--spacing) * 30);
   }
   .w-40 {
     width: calc(var(--spacing) * 40);
@@ -472,17 +454,11 @@
   .w-48 {
     width: calc(var(--spacing) * 48);
   }
-  .w-60 {
-    width: calc(var(--spacing) * 60);
-  }
   .w-72 {
     width: calc(var(--spacing) * 72);
   }
   .w-80 {
     width: calc(var(--spacing) * 80);
-  }
-  .w-\[60\%\] {
-    width: 60%;
   }
   .w-\[75\%\] {
     width: 75%;
@@ -1158,12 +1134,16 @@
     --tw-shadow: 0 4px 6px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 2px 4px -2px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .ring {
+  .ring-1 {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .ring-2 {
     --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .ring-3 {
+    --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .shadow-black {
@@ -1213,6 +1193,15 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, color-mix(in oklab, var(--color-sec-bg) 20%, transparent) var(--tw-shadow-alpha), transparent);
     }
+  }
+  .ring-pri-text {
+    --tw-ring-color: var(--color-pri-text);
+  }
+  .ring-sec-bg {
+    --tw-ring-color: var(--color-sec-bg);
+  }
+  .ring-thr-bg {
+    --tw-ring-color: var(--color-thr-bg);
   }
   .outline {
     outline-style: var(--tw-outline-style);
@@ -1275,23 +1264,11 @@
   .\[scrollbar-width\:none\] {
     scrollbar-width: none;
   }
-  .group-hover\:text-sec-item {
-    &:is(:where(.group):hover *) {
-      @media (hover: hover) {
-        color: var(--color-sec-item);
-      }
-    }
-  }
   .group-hover\:opacity-80 {
     &:is(:where(.group):hover *) {
       @media (hover: hover) {
         opacity: 80%;
       }
-    }
-  }
-  .group-active\:text-sec-item {
-    &:is(:where(.group):active *) {
-      color: var(--color-sec-item);
     }
   }
   .group-active\:opacity-80 {
@@ -1378,12 +1355,6 @@
           }
         }
       }
-    }
-  }
-  .focus\:border-none {
-    &:focus {
-      --tw-border-style: none;
-      border-style: none;
     }
   }
   .focus\:border-pri-item {
@@ -1513,11 +1484,6 @@
       line-height: var(--tw-leading, var(--text-3xl--line-height));
     }
   }
-  .md\:w-60 {
-    @media (width >= 48rem) {
-      width: calc(var(--spacing) * 60);
-    }
-  }
   .md\:grid-cols-3 {
     @media (width >= 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1536,12 +1502,6 @@
   .md\:gap-4 {
     @media (width >= 48rem) {
       gap: calc(var(--spacing) * 4);
-    }
-  }
-  .md\:border-y-3 {
-    @media (width >= 48rem) {
-      border-block-style: var(--tw-border-style);
-      border-block-width: 3px;
     }
   }
   .md\:px-8 {
@@ -1662,21 +1622,6 @@
   .portrait\:hidden {
     @media (orientation: portrait) {
       display: none;
-    }
-  }
-  .landscape\:absolute {
-    @media (orientation: landscape) {
-      position: absolute;
-    }
-  }
-  .landscape\:fixed {
-    @media (orientation: landscape) {
-      position: fixed;
-    }
-  }
-  .landscape\:top-0 {
-    @media (orientation: landscape) {
-      top: calc(var(--spacing) * 0);
     }
   }
   .landscape\:mt-0 {
@@ -1927,7 +1872,7 @@
     width: 75%;
   }
   #sideBar a span, #sideMenu a span {
-    display: block;
+    display: none;
   }
   #sideBar a i, #sideMenu a i {
     padding-block: calc(var(--spacing) * 1);
