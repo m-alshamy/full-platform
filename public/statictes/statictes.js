@@ -64,7 +64,7 @@ function initActivity() {
     };
 
     const activityOptions = {
-        showArea: true,
+        showArea: false,
         showPoint: false,
         showLine: true,
         lineSmooth: Chartist.Interpolation.cardinal({

@@ -33,8 +33,11 @@
 
         &:hover,
         &:active {
-            @apply opacity-80 select-none;
+            @apply opacity-80;
         }
+    }
+    #sideMenu a {
+        @apply w-[75%];
     }
 
     #sideBar a span, #sideMenu a span {
