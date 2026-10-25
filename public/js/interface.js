@@ -51,7 +51,9 @@ function toggleCollapse() {
 }
 
 function initSidebarState() {
-  setCollapsed(root.dataset.sbCollapsed === 'true', false);
+  let saved = false;
+  try { saved = localStorage.getItem(SB_KEY) === 'true'; } catch (e) { }
+  setCollapsed(saved, false);
 
   sideBar?.querySelectorAll('a').forEach(a => {
     a.title = a.querySelector('span')?.textContent.trim() ?? '';

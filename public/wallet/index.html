@@ -8,6 +8,8 @@
 
   <script>try { var t = localStorage.getItem('theme'); if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.classList.add('dark') } catch (e) { }</script>
 
+  <script>try { if (localStorage.getItem('sidebarCollapsed') === 'true') document.documentElement.dataset.sbCollapsed = 'true' } catch (e) { }</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="../dist/output.css" as="style">
