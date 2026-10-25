@@ -79,7 +79,7 @@
 </head>
 
 <body
-  class="lg:h-dvh lg:overflow-y-hidden font-noto text-pri-text scroll-smooth transition-all selection:bg-pri-item/40 flex flex-row ">
+  class="lg:h-dvh lg:overflow-y-hidden font-noto text-pri-text scroll-smooth selection:bg-pri-item/40 flex flex-row ">
 
   <div aria-hidden="true" class="
     pointer-events-none
@@ -183,7 +183,7 @@
   </aside>
 
   <div id="sideBlack"
-    class="hidden w-full h-full fixed z-48 bg-sec-bg/20 backdrop-blur-sm transition-all landscape:hidden">
+    class="hidden w-full h-full fixed z-48 bg-sec-bg/20 backdrop-blur-sm landscape:hidden">
   </div>
 
   <!-- lg aside bar -->
@@ -253,7 +253,7 @@
               class="w-full ring-1 p-2 rounded focus:outline-none ring-pri-text focus:ring-pri-item flex-3" dir="ltr">
 
             <button id="rechargeButton"
-              class="group py-3 px-6 bg-linear-to-r from-pri-item to-thr-item rounded-xl text-sm w-full font-semibold shadow-lg  shadow-pri-item/50 text-black transition-all hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none flex-1">
+              class="group py-3 px-6 bg-linear-to-r from-pri-item to-thr-item rounded-xl text-sm w-full font-semibold shadow-lg  shadow-pri-item/50 text-black transition-transform hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none flex-1">
               شحن
             </button>
           </div>
@@ -269,48 +269,6 @@
 
 
   </main>
-
-  <template id="courseTemplate">
-
-    <div id="course-card"
-      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none">
-      <!-- <i class="fa-regular fa-bookmark fa-2xl translate-y-3 absolute self-end mx-6 text-red-700 px-4
-          "></i> -->
-      <div id="course-image" class="overflow-clip flex-1 aspect-video w-full rounded-2xl">
-        <div
-          class="w-full h-full inset-0 bg-blend-hard-light bg-linear-to-t from-black/50 via-transparent to-transparent">
-        </div>
-      </div>
-
-      <div class="w-full flex-1 flex flex-col px-4 gap-8">
-        <div class="w-full flex-1 flex-row flex items-center justify-between gap-4">
-
-          <span class="font-bold gap-2 text-xl flex flex-col"><span id="course-name">كورس الشهر الأول</span>
-            <span id="course-about" class="font-normal text-sm text-sec-text/80">جرامر + كلمات + اختبار الوحدة
-              الأولى</span>
-          </span>
-          <div id="price-container"
-            class="text-sm bg-pri-bg border-8 border-pri-bg aspect-square rounded-full sm:-translate-y-12 sm:translate-x-4 -translate-y-14">
-            <div
-              class="w-17 h-full flex flex-col items-center px-3 justify-center border-thr-item dark:border-pri-item border-2 rounded-full">
-              <span id="course-price" class="font-bold text-2xl">230</span>
-              <span class="font-normal text-xs">ج.م</span>
-            </div>
-          </div>
-        </div>
-        <div class="w-full flex-1 flex items-center justify-between gap-x-4 gap-y-1 flex-col lg:flex-row">
-          <button id="course-open-btn"
-            class="enterBtn group py-2 px-5 border-2 border-sec-bg/40 rounded-xl text-sm w-full font-semibold text-pri-text transition-all hover:cursor-pointer active:scale-95 hover:bg-pri-bg/50 select-none">المحتوى
-          </button>
-          <button id="course-sub-btn"
-            class="subBtn group py-3 px-6 bg-linear-to-r from-pri-item to-thr-item rounded-xl text-sm w-full font-semibold shadow-lg  shadow-pri-item/50 text-black transition-all hover:cursor-pointer hover:shadow-lg active:shadow-lg active:scale-95 select-none">اشترك
-            الان
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </template>
 </body>
 
 </html>
