@@ -1801,6 +1801,26 @@
       }
     }
   }
+  .dark\:opacity-0 {
+    &:where(.dark, .dark *) {
+      opacity: 0%;
+    }
+  }
+  .dark\:opacity-15 {
+    &:where(.dark, .dark *) {
+      opacity: 15%;
+    }
+  }
+  .dark\:opacity-20 {
+    &:where(.dark, .dark *) {
+      opacity: 20%;
+    }
+  }
+  .dark\:opacity-100 {
+    &:where(.dark, .dark *) {
+      opacity: 100%;
+    }
+  }
   .dark\:shadow-none {
     &:where(.dark, .dark *) {
       --tw-shadow: 0 0 #0000;
