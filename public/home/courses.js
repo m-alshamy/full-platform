@@ -103,9 +103,6 @@ function buildCourseCard(template, course) {
     const cssUrl = toCssUrl(course.image);
     if (cssUrl) {
         image.style.backgroundImage = cssUrl;
-        image.style.backgroundSize = 'cover';
-        image.style.backgroundPosition = 'center';
-        image.style.backgroundRepeat = 'no-repeat';
     }
 
     // الكورس مملوك أصلاً، فلا حاجة لزر الاشتراك

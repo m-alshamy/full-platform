@@ -80,9 +80,6 @@ function buildCourseCard(template, course) {
     const cssUrl = toCssUrl(course.image);
     if (cssUrl) {
         image.style.backgroundImage = cssUrl;
-        image.style.backgroundSize = 'cover';
-        image.style.backgroundPosition = 'center';
-        image.style.backgroundRepeat = 'no-repeat';
     }
 
     const priceBox = el('price-container');
@@ -92,13 +89,13 @@ function buildCourseCard(template, course) {
         // مملوك: بدون شارة سعر وبدون زر اشتراك
         priceBox.hidden = true;
         subBtn.remove();
+        el('course-open-btn').classList.add('bg-thr-item/10', 'dark:bg-pri-item/20', 'dark:border-thr-item/40');
+        el('course-open-btn').classList.replace('border-sec-bg/40', 'border-sec-item/40');
     } else {
         // غير مملوك: إظهار الشارة والسعر وإبقاء زر الاشتراك
         priceBox.hidden = false;
         el('course-price').textContent = course.price ?? '';
         subBtn.dataset.courseId = course.id;
-        el('course-open-btn').classList.add('bg-thr-item/10', 'dark:bg-pri-item/20', 'dark:border-thr-item/40');
-        el('course-open-btn').classList.replace('border-sec-bg/40', 'border-sec-item/40');
     }
 
     el('course-card').dataset.courseId = course.id;

@@ -262,7 +262,7 @@
 
         <!-- footer logo -->
         <div class="w-auto h-auto flex flex-col items-center text-center py-8 gap-6">
-            <img src="../img/logo.svg" alt="logo" class="w-40 select-none">
+          <img src="../img/logo.svg" alt="logo" class="w-40 select-none">
 
           <span class="text-sec-text font-light sm:w-55">هنا وصف للموقع في قسم التذييل</span>
           <div class="flex flex-col py-4 gap-2">
@@ -304,12 +304,13 @@
   <template id="courseTemplate">
 
     <div id="course-card"
-      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none hover:-translate-y-2 active:-translate-y-2 transition-transform duration-500">
+      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none hover:-translate-y-2 active:-translate-y-2 transition-transform duration-500 group select-none">
       <!-- <i class="fa-regular fa-bookmark fa-2xl translate-y-3 absolute self-end mx-6 text-red-700 px-4
           "></i> -->
-      <div id="course-image" class="overflow-clip flex-1 aspect-video w-full rounded-2xl">
-        <div
-          class="w-full h-full inset-0 bg-blend-hard-light bg-linear-to-t from-black/50 via-transparent to-transparent">
+      <div class="overflow-clip aspect-video w-full rounded-2xl">
+        <div id="course-image"
+          class="size-full bg-cover bg-center bg-no-repeat transition-transform duration-1000 group-hover:scale-105 group-active:scale-105">
+          <div class="size-full bg-linear-to-t from-black/50 via-transparent to-transparent"></div>
         </div>
       </div>
 
