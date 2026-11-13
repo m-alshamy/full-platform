@@ -64,6 +64,7 @@ function initSidebarState() {
 
 // دالة للتبديل بين حالات إظهار وإخفاء القائمة
 function toggleSidebar() {
+  root.classList.toggle('overflow-y-hidden');
   sideNav.classList.toggle('translate-x-full');
   sideNav.classList.toggle('translate-x-0');
   sideBlack.classList.toggle('hidden');
