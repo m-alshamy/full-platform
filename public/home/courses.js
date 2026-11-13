@@ -110,6 +110,8 @@ function buildCourseCard(template, course) {
 
     // الكورس مملوك أصلاً، فلا حاجة لزر الاشتراك
     el('course-sub-btn').remove();
+    el('course-open-btn').classList.add('bg-thr-item/10', 'dark:bg-pri-item/15', 'dark:border-thr-item/40');
+    el('course-open-btn').classList.replace('border-sec-bg/40', 'border-sec-item/40');
 
     // ربط معرّف الكورس بالبطاقة والزر لاستخدامه لاحقاً (فتح المحتوى)
     const card = el('course-card');

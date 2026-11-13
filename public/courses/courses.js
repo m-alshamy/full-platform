@@ -97,6 +97,8 @@ function buildCourseCard(template, course) {
         priceBox.hidden = false;
         el('course-price').textContent = course.price ?? '';
         subBtn.dataset.courseId = course.id;
+        el('course-open-btn').classList.add('bg-thr-item/10', 'dark:bg-pri-item/20', 'dark:border-thr-item/40');
+        el('course-open-btn').classList.replace('border-sec-bg/40', 'border-sec-item/40');
     }
 
     el('course-card').dataset.courseId = course.id;

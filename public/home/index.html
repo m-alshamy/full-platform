@@ -182,8 +182,7 @@
 
   </aside>
 
-  <div id="sideBlack"
-    class="hidden w-full h-full fixed z-48 bg-sec-bg/20 backdrop-blur-sm landscape:hidden">
+  <div id="sideBlack" class="hidden w-full h-full fixed z-48 bg-sec-bg/20 backdrop-blur-sm landscape:hidden">
   </div>
 
   <!-- lg aside bar -->
@@ -225,14 +224,14 @@
   </aside>
 
   <!-- Content -->
-  <main class="mt-14 landscape:mt-0 lg:landscape:mt-14 w-full min-h-dvh overflow-y-clip">
+  <main class="mt-14 landscape:mt-0 lg:landscape:mt-14 w-full min-h-dvh lg:min-h-0 overflow-y-clip">
 
     <div class="w-full flex flex-col h-full overflow-y-auto">
 
       <!-- sections -->
 
       <section id="courses-sec"
-        class="h-auto w-full py-8 px-8 flex flex-col items-center justify-between gap-8 border-b-3 border-b-sec-bg/10 min-h-dvh">
+        class="h-auto w-full py-8 px-8 flex flex-col items-center justify-between gap-8 border-b-3 border-b-sec-bg/10 min-h-dvh shrink-0">
 
         <div id="cor-title" class="w-full h-auto flex flex-col sm:flex-row gap-16 px-12 justify-between items-center">
           <span class="text-4xl relative flex py-4">كورساتك
@@ -246,7 +245,7 @@
           </button>
         </div>
         <div id="container" dir="rtl"
-          class="h-full w-full flex flex-col md:flex-row flex-wrap items-center justify-evenly gap-8 py-8">
+          class="flex-1 w-full flex flex-col md:flex-row flex-wrap items-center justify-evenly gap-8 py-8">
 
           <!-- courses here -->
 
@@ -259,7 +258,7 @@
 
       <!-- footer section -->
 
-      <footer class="h-auto w-full flex-col flex justify-between sm:flex-row py-8 sm:px-8">
+      <footer class="h-auto w-full flex-col flex justify-between sm:flex-row py-8 sm:px-8 shrink-0">
 
         <!-- footer logo -->
         <div class="w-auto h-auto flex flex-col items-center text-center py-8 gap-6">
@@ -307,7 +306,7 @@
   <template id="courseTemplate">
 
     <div id="course-card"
-      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none">
+      class="course flex flex-col items-center justify-between relative w-full max-w-100 lg:max-w-100 h-auto p-3 bg-pri-bg rounded-2xl gap-4 shadow-md shadow-sec-bg/10 backdrop-blur-3xl dark:border-2 dark:border-thr-bg border-0 dark:shadow-none hover:-translate-y-2 active:-translate-y-2 transition-transform duration-500">
       <!-- <i class="fa-regular fa-bookmark fa-2xl translate-y-3 absolute self-end mx-6 text-red-700 px-4
           "></i> -->
       <div id="course-image" class="overflow-clip flex-1 aspect-video w-full rounded-2xl">
