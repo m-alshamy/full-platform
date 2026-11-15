@@ -72,7 +72,7 @@
 
     /* الحالة المطوية */
     html[data-sb-collapsed="true"] #sideBar {
-        @apply w-19;
+        @apply w-17 pl-0;
     }
 
     html[data-sb-collapsed="true"] #sideBar a span {

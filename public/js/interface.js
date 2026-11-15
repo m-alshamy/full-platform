@@ -63,7 +63,7 @@ function initSidebarState() {
 }
 
 // دالة للتبديل بين حالات إظهار وإخفاء القائمة
-function toggleSidebar() {
+function toggleSideMenu() {
   root.classList.toggle('overflow-y-hidden');
   sideNav.classList.toggle('translate-x-full');
   sideNav.classList.toggle('translate-x-0');
@@ -98,8 +98,8 @@ window.addEventListener('storage', (e) => {
 });
 
 // تشغيل الكود عند تحميل الصفحة
-menuBtn.addEventListener('click', toggleSidebar);
-sideBlack.addEventListener('click', toggleSidebar);
+menuBtn.addEventListener('click', toggleSideMenu);
+sideBlack.addEventListener('click', toggleSideMenu);
 document.addEventListener("DOMContentLoaded", function () {
   AOS.init({
     // المسافة بالبكسل من العنصر الأصلي لبدء الحركة
