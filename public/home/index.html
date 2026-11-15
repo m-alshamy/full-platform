@@ -188,7 +188,7 @@
   <!-- lg aside bar -->
 
   <aside id="sideBar"
-    class="relative h-[calc(100dvh-3.5rem)] mt-14 lg:landscape:flex items-center hidden lg:flex flex-col justify-start pt-24 font-medium text-pri-text backdrop-blur-sm overflow-x-hidden overflow-y-auto border-l-3 border-l-sec-bg/10 gap-10 portrait:hidden landscape:hidden [--active-bg:var(--color-thr-bg)]/70">
+    class="relative h-[calc(100dvh-3.5rem)] mt-14 lg:landscape:flex items-center hidden lg:flex flex-col justify-start pt-24 pb-8 font-medium text-pri-text backdrop-blur-sm overflow-x-hidden overflow-y-auto border-l-3 border-l-sec-bg/10 gap-10 portrait:hidden landscape:hidden [--active-bg:var(--color-thr-bg)]/70">
     <!-- collapse btn -> just hide all spans-->
 
     <button id="clpsBtn" onclick="toggleCollapse()"
@@ -216,13 +216,10 @@
       <i class="ph ph-wallet text-3xl"></i>
       <span>محفظتي</span>
     </a>
-    <div
-      class="w-full py-8 rounded-l-lg items-center text-nowrap text-pri-text/50 border-r-pri-item h-full flex flex-col justify-end">
-      <a class="" href="../settings" data-route="settings">
-        <i class="ph ph-gear text-3xl"></i>
-        <span>الاعدادات</span>
-      </a>
-    </div>
+    <a class="mt-auto" href="../settings" data-route="settings">
+      <i class="ph ph-gear text-3xl"></i>
+      <span>الاعدادات</span>
+    </a>
 
   </aside>
 
